@@ -1,7 +1,15 @@
 services:
   - type: web
-    name: mybot-service
+    name: pro-ai-tipster-bot
     env: python
+    plan: starter
+    autoDeploy: true
     buildCommand: pip install -r requirements.txt
     startCommand: python bot.py
-    branch: main
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        value: "6382377146"
+      - key: WEBHOOK_URL
+        sync: false
